@@ -37,9 +37,15 @@ That is the whole thing. You are already logged in, so there is nothing to conne
 
 ### With an agent (Claude Code and similar)
 
-Drop `SKILL.md` in your skills directory and ask it to audit your LinkedIn. It will ask what your posting is for before pulling anything, because that answer decides which metric is the real one.
+Clone the repo into your skills directory, keeping the folder name:
 
-This path is more convenient once it works and it has real setup friction. Read the next section before you start.
+```
+git clone https://github.com/opitaru-sys/linkedin-post-audit ~/.claude/skills/linkedin-post-audit
+```
+
+The folder name is what names the skill, and the file has to stay called `SKILL.md` for the loader to find it. Then ask your agent to audit your LinkedIn. It will ask what your posting is for before pulling anything, because that answer decides which metric is the real one.
+
+This path is more convenient once it works, and it carries all of the setup friction. Read the next section before you start.
 
 ## Setup friction on the agent path
 
