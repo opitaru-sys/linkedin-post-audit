@@ -14,7 +14,10 @@ Most people grade their LinkedIn on impressions. Impressions are the easiest num
 If you are driving a browser rather than having the user paste into their own console, check these first. Skipping them produces a confident, entirely fabricated audit, because the failure mode is silence rather than an error.
 
 1. **Logged in already?** If the page shows a login form or a security checkpoint, stop and tell the user. Do not attempt to log in and do not touch credentials.
-   LinkedIn also interrupts with security-key enrolment prompts (register a USB hardware key for 2FA) that are modal enough to block the whole session. Never act on one. It is both a security setting and an authentication credential, and the hardware is in the user's hand regardless. Stop, describe what is on screen, and let them clear it.
+
+   A passkey or USB security-key prompt is the same signal wearing a costume. LinkedIn raises it on its sign-in page, so it reads like a mysterious modal blocker mid-run when it actually just means the session is logged out. Say so plainly and ask the user to sign in themselves.
+
+   Never dismiss, suppress, or script around it. Doing that means disabling a browser security mechanism to get past an authentication screen, and no audit is worth that. If the user asks you to, decline and explain why. There is no legitimate path here that needs it, because the whole skill assumes an already-signed-in session.
 2. **Is the pane a sane size?** Resize to roughly 1280x900. A small pane (393x419 has happened) breaks clicking outright.
 3. **Is the pane actually rendering?** A hidden or non-compositing pane returns success for every click, with correct-looking coordinates, and lands nothing.
 4. **Verify one click before trusting any of them.** Click a text field, then read `document.activeElement`. Anything other than the field means input is not arriving, and everything downstream is invented. Do not proceed.
